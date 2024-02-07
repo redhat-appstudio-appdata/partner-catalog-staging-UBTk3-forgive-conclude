@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: partner-catalog-staging
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: partner-catalog-staging
+    app.kubernetes.io/part-of: partner-catalog-staging
+  name: partner-catalog-stagingmmyq
+spec:
+  path: /
+  port:
+    targetPort: 8081
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: partner-catalog-staging
+    weight: null
+status: {}
